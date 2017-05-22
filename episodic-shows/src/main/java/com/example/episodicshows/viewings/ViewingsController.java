@@ -53,7 +53,7 @@ public class ViewingsController {
     @GetMapping("/users/{id}/recently-watched")
     public List<RecentlyWatch> GetWatch(@PathVariable Long id){
 
-        List<Viewings> viewingsList =  this.viewingsRepository.findAllByUserId(id);
+        List<Viewings> viewingsList =  this.viewingsRepository.findAllByUserIdOrderByUpdatedAtDesc(id);
 
         List<RecentlyWatch> recentlyWatchList = new ArrayList<>();
 

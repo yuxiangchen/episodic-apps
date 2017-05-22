@@ -8,6 +8,6 @@ import java.util.List;
  * Created by trainer8 on 5/20/17.
  */
 public interface ViewingsRepository extends CrudRepository<Viewings, Long>{
-    List<Viewings> findAllByUserId(Long userId);
+    List<Viewings> findAllByUserIdOrderByUpdatedAtDesc(Long userId);
     Viewings findAllByUserIdAndShowId(Long userId, Long showId);
 }
