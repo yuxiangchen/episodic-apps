@@ -22,6 +22,6 @@ public class Progress extends Endpoints{
     }
 
     public String getType() {
-        return "play";
+        return "progress";
     }
 }

@@ -20,11 +20,11 @@ import java.time.LocalDateTime;
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type")
 @JsonSubTypes({
         @JsonSubTypes.Type(value = Play.class, name = "play"),
-        @JsonSubTypes.Type(value = Play.class, name = "pause"),
-        @JsonSubTypes.Type(value = Play.class, name = "fastForward"),
-        @JsonSubTypes.Type(value = Play.class, name = "rewind"),
-        @JsonSubTypes.Type(value = Play.class, name = "progress"),
-        @JsonSubTypes.Type(value = Play.class, name = "scrub")
+        @JsonSubTypes.Type(value = Pause.class, name = "pause"),
+        @JsonSubTypes.Type(value = FastForward.class, name = "fastForward"),
+        @JsonSubTypes.Type(value = Rewind.class, name = "rewind"),
+        @JsonSubTypes.Type(value = Progress.class, name = "progress"),
+        @JsonSubTypes.Type(value = Scrub.class, name = "scrub")
 })
 public class Endpoints {
     @Id
@@ -39,5 +39,9 @@ public class Endpoints {
         this.showId = showId;
         this.episodeId = episodeId;
         this.createdAt = createdAt;
+    }
+
+    public String getType() {
+        return null;
     }
 }

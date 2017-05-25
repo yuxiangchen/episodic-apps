@@ -28,4 +28,15 @@ public class Viewings {
     private Long episodeId;
     private LocalDateTime updatedAt;
     private int timecode;
+
+    public Viewings(Long showId, Long userId, Long episodeId, LocalDateTime updatedAt, int timecode) {
+        this.showId = showId;
+        this.userId = userId;
+        this.episodeId = episodeId;
+        this.updatedAt = updatedAt;
+        this.timecode = timecode;
+    }
+
+
+
 }

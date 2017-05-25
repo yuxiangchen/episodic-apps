@@ -210,7 +210,6 @@ public class EndpointsControllerTest {
     @Test
     @Rollback
     public void testPostProgress() throws Exception {
-
         Long count = endpointsRepository.count();
 
         Map<String, Object> dataPayload = new HashMap<String, Object>(){
@@ -245,6 +244,48 @@ public class EndpointsControllerTest {
 
         assertThat(endpointsRepository.count(), equalTo(count+1));
     }
+
+//
+//    @Test
+//    @Rollback
+//    public void testPostProgressWithAmqp() throws Exception {
+//        @MockBean
+//        private
+//        Long count = endpointsRepository.count();
+//
+//        Map<String, Object> dataPayload = new HashMap<String, Object>(){
+//            {
+//                put("startOffset", 4);
+//            }
+//        };
+//
+//        Map<String, Object> payload = new HashMap<String, Object>(){
+//            {
+//                put("type", "progress");
+//                put("userId", 52);
+//                put("showId", 987);
+//                put("episodeId", 456);
+//                put("createdAt", "2017-11-08T15:59:13.0091745");
+//                put("data", dataPayload);
+//            }
+//        };
+//
+//        ObjectMapper mapper = new ObjectMapper();
+//        mapper.registerModule(new JavaTimeModule());
+//        mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+//        String json = mapper.writeValueAsString(payload);
+//
+//        MockHttpServletRequestBuilder request = post("")
+//                .contentType(MediaType.APPLICATION_JSON)
+//                .accept(MediaType.APPLICATION_JSON)
+//                .content(json);
+//
+//        this.mvc.perform(request)
+//                .andExpect(status().isOk());
+//
+//        assertThat(endpointsRepository.count(), equalTo(count+1));
+//    }
+
 
 
     @Test
